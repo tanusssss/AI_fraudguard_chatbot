@@ -1,0 +1,36 @@
+
+---
+
+### ✅ `.gitignore`
+
+```gitignore
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+.env/
+venv
+
+# Streamlit cache
+.streamlit/
+.stcache/
+.stfolder/
+
+# Jupyter and IPython
+.ipynb_checkpoints/
+
+# VSCode & IDEs
+.vscode/
+.idea/
+
+# Output
+*.csv
+*.pkl
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
