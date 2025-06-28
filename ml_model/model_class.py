@@ -59,7 +59,7 @@ class FraudDetectionModel:
         ].tolist()
 
         self.is_trained = True
-        print("✅ Model trained. Selected features:", self.selected_features)
+        print(" Model trained. Selected features:", self.selected_features)
 
     # ------------------------------------------------------
     # Predict
@@ -82,7 +82,7 @@ class FraudDetectionModel:
             raise ValueError("Cannot save an un‑trained model. Train first.")
         with open(filename, "wb") as f:
             pickle.dump(self, f)
-        print(f"💾 Model saved to {filename}")
+        print(f"Model saved to {filename}")
 
     @staticmethod
     def load_model(filename: str | Path):

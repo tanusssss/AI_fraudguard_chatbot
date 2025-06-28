@@ -7,11 +7,11 @@ from chatbot.chatbot_engine import generate_chatbot_response
 
 st.set_page_config(page_title="FraudGuard AI Chatbot", page_icon="🕵️", layout="centered")
 
-st.title("🕵️ FraudGuard AI Chatbot")
+st.title(" FraudGuard AI Chatbot")
 st.markdown("Talk to your ML fraud‑detection model in natural language – now powered by a free Hugging Face LLM (Flan‑T5‑base).")
 
 # --------------------------------------------------
-# 🔄  Load / cache LLM (HF free model)
+#   Load / cache LLM (HF free model)
 # --------------------------------------------------
 @st.cache_resource(show_spinner="Loading LLM (first time ≈15‑20 s)…")
 def load_llm():
@@ -46,7 +46,7 @@ role_examples = {
     ],
 }
 
-selected_prompt = st.selectbox("💬 Try a sample question:", [""] + role_examples[role])
+selected_prompt = st.selectbox(" Try a sample question:", [""] + role_examples[role])
 
 # Preserve user input but allow click‑to‑ask templates
 def _get_user_query():
@@ -81,11 +81,11 @@ if "filtered_df" in st.session_state:
     st.dataframe(st.session_state["filtered_df"], use_container_width=True)
 
     csv_bytes = st.session_state["filtered_df"].to_csv(index=False).encode("utf-8")
-    st.download_button("🗂️ Download Filtered Results", csv_bytes, "risky_transactions.csv", "text/csv")
+    st.download_button(" Download Filtered Results", csv_bytes, "risky_transactions.csv", "text/csv")
 
-    # ⚡ Risk distribution chart
+    # Risk distribution chart
     if not st.session_state["filtered_df"].empty:
-        st.subheader("📊 Risk Distribution")
+        st.subheader(" Risk Distribution")
         fig = px.histogram(
             st.session_state["filtered_df"],
             x="riskNote",
@@ -97,11 +97,11 @@ if "filtered_df" in st.session_state:
         st.plotly_chart(fig, use_container_width=True)
 
 # --------------------------------------------------
-# 🧠 LLM‑Powered Q&A Section
+#  LLM‑Powered Q&A Section
 # --------------------------------------------------
 if user_query:
     if "filtered_df" not in st.session_state:
-        st.warning("⬆️ Please upload a CSV first so I have data to talk about.")
+        st.warning(" Please upload a CSV first so I have data to talk about.")
     else:
         df_ctx = st.session_state["filtered_df"]
         # Build a compact context summary for the LLM
@@ -129,4 +129,4 @@ if user_query:
             except Exception as e:
                 llm_response = f"[LLM error: {e}]"
 
-        st.markdown(f"**🤖 Chatbot:** {llm_response}")
+        st.markdown(f"** Chatbot:** {llm_response}")

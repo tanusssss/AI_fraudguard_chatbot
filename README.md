@@ -1,10 +1,10 @@
-# 🕵️‍♂️ FraudGuard AI Chatbot
+#  FraudGuard AI Chatbot
 
 An interactive Gen-AI powered fraud detection assistant that predicts and explains risky financial transactions. Built with **Streamlit**, **KNN**, and **Hugging Face Transformers**.
 
 ---
 
-## 🚀 Project Overview
+##  Project Overview
 
 FraudGuard is designed for **three user roles**:
 - 👤 Customers: Get fraud risk explanations on their transactions
@@ -13,7 +13,7 @@ FraudGuard is designed for **three user roles**:
 
 ---
 
-## 🧠 Tech Stack
+##  Tech Stack
 
 | Component        | Tech Used                    |
 |------------------|------------------------------|
@@ -28,7 +28,7 @@ FraudGuard is designed for **three user roles**:
 
 ---
 
-## 🧪 Running the App
+##  Running the App
 
 ```bash
 # 1. Create environment
@@ -42,7 +42,7 @@ pip install -r requirements.txt
 streamlit run app/main.py
 
 
-## 🧪 Running the App
+##  Running the App
 
 ```bash
 # 1. Create environment
@@ -55,7 +55,7 @@ pip install -r requirements.txt
 # 3. Launch the app
 streamlit run app/main.py
 
-## 📦 Folder Structure
+##  Folder Structure
 fraudguard-ai-chatbot/
 │
 ├── app/

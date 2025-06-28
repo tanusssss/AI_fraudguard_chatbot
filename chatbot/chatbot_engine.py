@@ -1,6 +1,6 @@
 """
 chatbot_engine.py
-Primary: Free Hugging Face LLM (local / HF endpoint)
+Primary: Free HuggingFace LLM (local / HF endpoint)
 Fallback: Rule‑based responses
 Optional: Easily swap in OpenAI by setting USE_OPENAI=True
 """
@@ -90,7 +90,7 @@ def generate_chatbot_response(role: str, user_query: str, txn_data: dict) -> str
         f"Risk Level: {txn_data['riskNote']}"
     )
 
-    # 1️⃣  Hugging Face LLM (primary)
+    # 1 Hugging Face LLM (primary)
     if USE_HF_LLM and generator is not None:
         template = prompt_templates.get(role.lower(), prompt_templates["customer"])
         full_prompt = template.format(user_query=user_query, txn_summary=txn_summary)
@@ -102,7 +102,7 @@ def generate_chatbot_response(role: str, user_query: str, txn_data: dict) -> str
         except Exception as e:
             print(f"[WARN] HF generation failed: {e}")
 
-    # 2️⃣  OpenAI GPT (optional plug‑in)
+    # 2 OpenAI GPT (optional plug‑in)
     if USE_OPENAI:
         try:
             completion = openai.ChatCompletion.create(
@@ -117,5 +117,5 @@ def generate_chatbot_response(role: str, user_query: str, txn_data: dict) -> str
         except Exception as e:
             print(f"[WARN] OpenAI call failed: {e}")
 
-    # 3️⃣  Fallback: rule‑based
+    # 3 Fallback: rule‑based
     return _rule_based_response(role, user_query, txn_data)
